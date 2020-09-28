@@ -1,0 +1,308 @@
+/*You can add global styles to this file, and also import other style files*/
+
+@import "~bootstrap/dist/css/bootstrap.css";
+
+/*Import color variables (configurable)*/
+@import '~config/variables.css';
+
+/*************************
+ * font styling
+ *************************/
+ @font-face {
+    font-family: 'Lato', arial, sans-serif;
+    src: url('assets/fonts/Lato-Black.ttf') format('truetype'), url('assets/fonts/Lato-BlackItalic.ttf') format('truetype'), url('assets/fonts/Lato-Bold.ttf') format('truetype'), url('assets/fonts/Lato-BoldItalic.ttf') format('truetype'), url('assets/fonts/Lato-Hairline.ttf') format('truetype'), url('assets/fonts/Lato-HairlineItalic.ttf') format('truetype'), url('assets/fonts/Lato-Italic.ttf') format('truetype'), url('assets/fonts/Lato-Light.ttf') format('truetype'), url('assets/fonts/Lato-LightItalic.ttf') format('truetype'), url('assets/fonts/Lato-Regular.ttf') format('truetype');
+  }
+
+/*****************app-navbar*****************/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+}
+
+h1 {
+    font: 300 32px 'Lato', arial, sans-serif;
+    margin-bottom: 1rem;
+  }
+  h2 {
+    font: 400 24px 'Lato', arial, sans-serif;
+    margin-bottom: 0.5rem;
+  }
+  h3 {
+    font: 700 20px 'Lato', arial, sans-serif;
+    margin-bottom: 0.5rem;
+  }
+  h4 {
+    font: 700 18px 'Lato', arial, sans-serif;
+    margin-bottom: 0.5rem;
+  }
+  h5 {
+    font: italic 700 18px 'Lato', arial, sans-serif;
+    margin-bottom: 0.5rem;
+  }
+  h6 {
+    font: italic 700 16px 'Lato', arial, sans-serif;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+    position: initial;
+  }
+  em {
+    font-style: italic;
+  }
+  ol {
+    list-style: decimal;
+    padding-left: 1.4rem;
+    margin-bottom: 2rem;
+  }
+
+b {
+    font-weight: 600;
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background: #fff;
+  color: var(--body-fore-color);
+  font: 400 14px/1.525em 'Lato-Light', arial, sans-serif;
+}
+/* logo for desktop*/
+#myLogo{
+  max-width:70px;
+  height: auto;
+  margin-right: 15px;
+  margin-left: -10px;
+  border-radius: 2px;
+  margin-bottom: 3px;
+  margin-top: -10px;
+}
+/* logo for responsive mode*/
+.logo{
+  max-width:70px;
+  height: auto;
+  margin-right: 15px;
+  margin-left: -10px;
+  border-radius: 2px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  outline: none;
+  margin-top: -10px;
+}
+
+.btn.btn-success {
+  background-color: var(--button-color);
+  background: var(--button-color);
+  width: 100px;
+  border-color: var(--button-color);
+  
+}
+.btn.btn-success:not(:disabled):not(.disabled):active {
+  background-color: var(--button-color);
+  border-color: var(--button-color) !important;
+  box-shadow: none;
+}
+
+.btn.btn-success:focus,
+.btn.btn-success:active,
+.btn.btn-success:visited {
+  box-shadow: none;
+  border-color: var(--button-color);
+}
+
+button.btn.btn-reset{
+  margin-left:0px;
+  width:100px;
+  border:none;
+  font-family: inherit;
+}
+
+.details-container {
+  background-color: rgb(238, 238, 238);
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+/*********************app-html-content***********************/
+
+app-html-content h1,
+app-html-content h2,
+app-html-content h3,
+app-html-content h4{
+    text-align: center;
+}
+app-html-content h2{
+  color: var(--title-color);
+  font-size: var(--title-size);
+  font-weight: bold;
+  font: 700 'Lato', arial, sans-serif;
+}
+app-html-content p{
+    text-align: justify;
+    line-height: 1.3em;
+    margin: 0 auto;  
+}
+
+@media (max-width:576px) {
+    app-html-content p {
+      word-wrap: break-word;
+    }
+  app-html-content li {
+      word-wrap: break-word;
+      margin:0 auto;
+  }
+ }
+/************************/
+
+@media (min-width: 200px) and (max-width:292px) {
+  button.btn.btn-reset{
+      width:80px;
+      margin-left:0;
+      box-shadow: none;
+  }
+  button.btn.btn-success{
+      width:80px;
+  }
+}
+
+@media (min-width: 576px) and (max-width:680px) {
+  .myForm{
+      width:500px;
+      margin-left:30px;
+  }
+  button.btn.btn-reset{
+      margin-left:0px;
+      width:100px;
+    }
+    button.btn.btn-success{
+        margin-left: 0px;
+    }
+}
+@media (min-width: 680px) and (max-width:767px){
+  .myForm{
+      width:560px;
+      margin-left:70px;
+  }
+}
+@media (min-width: 768px) and (max-width:794px) {
+  button.btn.btn-reset{
+      margin-left:0;
+      width:75px;
+    }
+    button.btn.btn-success{
+        width:75px;
+    }
+    td.select {
+      word-wrap: break-word;
+    }
+}
+@media (min-width: 795px) and (max-width:1113px) {
+  button.btn.btn-reset{
+      margin-left:0;
+      width:80px;
+    }
+    button.btn.btn-success{
+        width:80px;
+    }
+}
+
+
