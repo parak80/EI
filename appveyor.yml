@@ -1,0 +1,47 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+init:
+  - git config --global core.autocrlf true
+environment:
+  nodejs_version: "8"
+nuget:
+  account_feed: true
+  project_feed: true
+before_build: 
+- cmd: nuget restore 
+install:
+  - ECHO %APPVEYOR_BUILD_WORKER_IMAGE%
+  - ps: Install-Product node $env:nodejs_version
+  - dotnet --version
+  - dotnet restore
+  - choco install googlechrome  --ignore-checksums
+build_script:
+- nuget sources
+- dotnet build
+- npm -g install npm@latest
+- cd Evolution.Internet
+- npm install
+- npm run build-p
+- dotnet publish Evolution.Internet.csproj 
+artifacts:
+ - path: '\Evolution.Internet\bin\Debug\net461\publish'
+   name: Evolution.Internet
+   type: WebDeployPackage
+test_script:
+# - cd Evolution.Internet
+- npm run test-ci
+- cd ..\test
+- ps: dotnet vstest (Get-ChildItem -recurse -File *.Test*.dll) 
+cache:
+  # - packages -> **\packages.config      # preserve "packages" directory in the root of build folder but will reset it if packages.config is modified
+  - Evolution.Internet\node_modules     # local npm modules
+  - '%APPDATA%\npm-cache -> **\package.json'              # npm cache
+  - '%USERPROFILE%\.nuget\packages -> **\project.json'  # project.json cache
+notifications:
+- provider: Email
+  to:
+  - tommy.blomskog@essvision.se
+  - parisa.carlborg@essvision.se
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: false
