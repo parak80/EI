@@ -1,0 +1,77 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\net461\Evolution.Internet.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\net461\Evolution.Internet.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="html\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+    <PackageReference Include="Evolution.Asposer" Version="1.0.6" />
+    <PackageReference Include="MediatR" Version="4.1.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="4.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Formatters.Xml" Version="2.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
+    <PackageReference Include="Serilog" Version="2.6.0" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.1.2" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.2" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="2.6.1" />
+    <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
+    <PackageReference Include="Serilog.Sinks.Seq" Version="4.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="2.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Evolution.Internet.Logic\Evolution.Internet.Logic.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="client-src\app\model\case.ts">
+      <CustomToolNamespace>..\Evolution.Internet.Logic\ViewModel\Case.cs</CustomToolNamespace>
+    </None>
+    <None Update="client-src\app\model\code-name.ts">
+      <CustomToolNamespace>..\Evolution.Internet.Logic\ViewModel\CodeName.cs</CustomToolNamespace>
+    </None>
+    <None Update="client-src\app\model\direction.ts">
+      <CustomToolNamespace>..\Evolution.Internet.Logic\ViewModel\Direction.cs</CustomToolNamespace>
+    </None>
+    <None Update="client-src\app\model\document.ts">
+      <CustomToolNamespace>..\Evolution.Internet.Logic\ViewModel\Document.cs</CustomToolNamespace>
+    </None>
+    <None Update="client-src\app\model\download-file.ts">
+      <CustomToolNamespace>..\Evolution.Internet.Logic\ViewModel\DownloadFileData.cs</CustomToolNamespace>
+    </None>
+    <None Update="client-src\app\model\id-name.ts">
+      <CustomToolNamespace>..\Evolution.Internet.Logic\ViewModel\IdName.cs</CustomToolNamespace>
+    </None>
+  </ItemGroup>
+
+</Project>
